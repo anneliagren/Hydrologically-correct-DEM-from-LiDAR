@@ -1,4 +1,4 @@
-# Calulating ditance to ditch across Sweden
+# Calulating distance to ditch across Sweden
 How to make a rasterlayer for Sweden with latteral (eucledian) distance to ditch.  
 
 The ditcehs are defined as the AI detected ditcehs in DOI: 10.1061/JIDEDH/IRENG-9796.
