@@ -58,17 +58,33 @@ def main():
     wbt.set_verbose_mode(False) # Sets verbose mode. If verbose mode is False, tools will not print output messages
     #wbt.set_compress_rasters(True) # Compressed TIF file format based on the DEFALTE algorithm
     in_directory = 'E:/William/laserdataskog/workdir/' # Input file directory; change to match your environment
-
+    
+    #reclassify ditches to 0 and non-ditches to 1
     wbt.set_working_dir(in_directory)
-    wbt.lidar_tin_gridding(parameter="elevation", 
-    returns="last", # A DEM or DTM is usually obtained from the "last" returns, a DSM uses "first" returns (or better, use the lidar_digital_surface_model tool)
-    resolution=0.5, # This is the spatial resolution of the output raster in meters and should depend on application needs and point density.
-    exclude_cls= "0,1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18", # Example of classified points to be excluded from analysis i.e. class 9 is water.
-    minz=None,
-    maxz=None,
-    max_triangle_edge_length=50.0
+    wbt.reclass(
+    i, 
+    output, 
+    reclass_vals, 
+    assign_mode=False, 
+    callback=default_callback
     )
-    print("Completed TIN interpolation \n")
+    
+    # Calculate Eucledian (horizontal) Distance to Ditch
+    wbt.euclidean_distance(
+    i, 
+    output, 
+    callback=default_callback
+    )
+    
+    #wbt.lidar_tin_gridding(parameter="elevation", 
+    #returns="last", # A DEM or DTM is usually obtained from the "last" returns, a DSM uses "first" returns (or better, use the lidar_digital_surface_model tool)
+    #resolution=0.5, # This is the spatial resolution of the output raster in meters and should depend on application needs and point density.
+    #exclude_cls= "0,1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18", # Example of classified points to be excluded from analysis i.e. class 9 is water.
+    #minz=None,
+    #maxz=None,
+    #max_triangle_edge_length=50.0
+    #)
+    print("Completed Eucledian Distance \n")
 
     
 main()
