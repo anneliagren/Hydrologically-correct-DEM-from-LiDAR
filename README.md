@@ -1,6 +1,7 @@
-# correct-DEM-from-LiDAR
-How to make a hydrollogically compatible DEM ffrom a national LiDAR scan
-The raw LiDAR data was downloaded from the Swedish mapping, cadastral and land registration authority (Lantmäteriet): https://www.lantmateriet.se/en/maps-and-geographic-information/geodataprodukter/produktlista/laserdata-nedladdning-skog/
+# Calulating ditance to ditch across Sweden
+How to make a rasterlayer for Sweden with latteral (eucledian) distance to ditch.  
+
+The ditcehs are defined as the AI detected ditcehs in DOI: 10.1061/JIDEDH/IRENG-9796.
 
 
 # With docker container:
@@ -8,12 +9,12 @@ docker build -t dem .
 
 **Start container**
 
-docker run -it  --mount type=bind,source=/mnt/Extension_100TB/national_datasets/laserdataskog/,target=/data --mount type=bind,source=/mnt/Extension_100TB/William/GitHub/Hydrologically-correct-DEM-from-LiDAR/,target=/code dem:latest
+docker run -it  --mount type=bind,source=/mnt/Extension_100TB/national_datasets/ditches/1m/classified,target=/data --mount type=bind,source=/mnt/Extension_100TB/Anneli/DistanceToDitch/,target=/code dem:latest
 
-**Select and copy relevant laztiles to new directory**
+**Select and copy relevant ditchtiles to new directory**
 python3 /code/pool_laz_files.py 
 
-once all data is pooled the script loop_process_new_block.py can be used to create DEM tiles without edgeeffects. This script uses the json files in the metadata directory of each block and intersect the block extent with a lidar tile index file. All laz files that intersect that extent gets copied to a new directory. This includes neighbouring tiles. DEM raster tiles are then created from the copied laz tiles but only tiles that are inside the block gets copied to the final output directory. This enables looping over lidar blocks and creating a seamless dem.  
+once all data is pooled the script loop_process_new_block.py can be used to create tiles without edgeeffects. This script uses the json files in the metadata directory of each block and intersect the block extent with a lidar tile index file. All raster files that intersect that extent gets copied to a new directory. This includes neighbouring tiles. Raster tiles are then created from the copied raster tiles but only tiles that are inside the block gets copied to the final output directory. This enables looping over lidar blocks and creating a seamless distanace to ditch raster.  
 
 
 # Process all existing blocks SFA
