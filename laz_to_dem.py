@@ -1,11 +1,11 @@
-
+import os
 import geopandas as gpd
 import pandas as pd
 import shutil
 from geopandas.tools import sjoin
 import sys
 try:
-    sys.path.insert(1, 'E:/William/WBT') #
+    sys.path.insert(1, 'F:/Diken/WhiteBT') #
     from whitebox_tools import WhiteboxTools
     wbt = WhiteboxTools()
 except: 
