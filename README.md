@@ -9,7 +9,7 @@ docker build -t dem .
 
 **Start container**
 
-docker run -it  --mount type=bind,source=/mnt/Extension_100TB/national_datasets/ditches/1m/classified,target=/data --mount type=bind,source=/mnt/Extension_100TB/Anneli/DistanceToDitch/,target=/code dem:latest
+docker run -it  --mount type=bind,source=/mnt/Extension_100TB/national_datasets/ditches/1m/classified,target=/data --mount type=bind,source=/mnt/Extension_100TB/national_datasets/ditches/1m/DistanceToDitch,target=/code dem:latest
 
 **Select and copy relevant ditchtiles to new directory**
 python3 /code/pool_laz_files.py 
