@@ -12,7 +12,7 @@ except:
     print('failed to import local whitebox, using pip instead')
 else:
     import whitebox as wbt
-# read lidar tile index to geopnadas dataframe
+# read lidar tile index to geopnadas dataframe (change to ditch tiles)
 
 lidar_tiles_index = gpd.read_file('E:/William/Indexrutor/Indexrutor_2_5km_Sverige.shp')
 path_to_block_metadata = 'E:/William/laserdataskog/20D001/metadata/'
@@ -76,14 +76,7 @@ def main():
     callback=default_callback
     )
     
-    #wbt.lidar_tin_gridding(parameter="elevation", 
-    #returns="last", # A DEM or DTM is usually obtained from the "last" returns, a DSM uses "first" returns (or better, use the lidar_digital_surface_model tool)
-    #resolution=0.5, # This is the spatial resolution of the output raster in meters and should depend on application needs and point density.
-    #exclude_cls= "0,1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18", # Example of classified points to be excluded from analysis i.e. class 9 is water.
-    #minz=None,
-    #maxz=None,
-    #max_triangle_edge_length=50.0
-    #)
+   
     print("Completed Eucledian Distance \n")
 
     
