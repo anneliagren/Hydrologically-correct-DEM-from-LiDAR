@@ -1,5 +1,6 @@
-# This is a fork from Williams Liderbergs 
-# This has just beed used as a playground for messing with the code and should not be used. 
+# This is a fork from Williams Liderberg sproject # This has just beed used as a playground for messing with the code and should not be used. 
+# Use williamlidberg/Hydrologically-correct-DEM-from-LiDAR for correct project
+
 
 
 Calulating distance to ditch across Sweden
