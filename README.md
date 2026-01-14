@@ -1,4 +1,8 @@
-# Calulating distance to ditch across Sweden
+# This is a fork from Williams Liderbergs 
+# This has just beed used as a playground for messing with the code and should not be used. 
+
+
+Calulating distance to ditch across Sweden
 How to make a rasterlayer for Sweden with latteral (eucledian) distance to ditch.  
 
 The ditcehs are defined as the AI detected ditcehs in DOI: 10.1061/JIDEDH/IRENG-9796.
